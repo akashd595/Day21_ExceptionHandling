@@ -12,15 +12,21 @@ public class MoodAnalyserTest {
         assertEquals("Sad",result);
     }
     @Test
-    public void givenAnyMoodShopuldreturnSad(){
+    public void givenAnyMoodShopuldreturnHappy(){
         MoodAnalyser moodAnalyser = new MoodAnalyser();
         String result = moodAnalyser.analyseMood("I am in any mood");
         assertEquals("Happy",result);
     }
     @Test
-    public void givenHappyMoodShopuldreturnSad(){
+    public void givenHappyMoodShopuldreturnHappy(){
         MoodAnalyser moodAnalyser = new MoodAnalyser();
         String result = moodAnalyser.analyseMood("I am in Happy mood");
+        assertEquals("Happy",result);
+    }
+    @Test
+    public void givenNullShopuldreturnHappy(){
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String result = moodAnalyser.analyseMood("");
         assertEquals("Happy",result);
     }
 
