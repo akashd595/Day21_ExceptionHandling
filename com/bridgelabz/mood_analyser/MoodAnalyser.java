@@ -16,6 +16,9 @@ public class MoodAnalyser {
         String result = " ";
 
         try {
+            if (msg == "") {
+                throw new MoodAnalysisException("Empty Mood");
+            }
             for (String var : stringArray) {
                 if (var.equalsIgnoreCase("happy")) {
                     result = "Happy";
@@ -27,6 +30,8 @@ public class MoodAnalyser {
             }
         } catch (NullPointerException e){
             result = "Happy";
+        } catch (MoodAnalysisException e) {
+            return e.getMessage();
         }
 
         if(result.equals(" ")){
@@ -40,7 +45,7 @@ class AnalyseMoodDemo{
     public static void main(String[] args) {
 
         MoodAnalyser moodAnalyser = new MoodAnalyser();
-        String mood = moodAnalyser.analyseMood("I am a Happy boy");
+        String mood = moodAnalyser.analyseMood("");
         System.out.println(mood);
 
     }
